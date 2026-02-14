@@ -60,7 +60,7 @@ def query_ai():
         cache_hits += 1
         cache[key]["last_used"] = time.time()
 
-        latency = int((time.time() - start_time) * 1000)
+        latency = max(1, int((time.time() - start_time) * 1000))
 
         return jsonify({
             "answer": cache[key]["answer"],
